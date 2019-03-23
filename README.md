@@ -1,8 +1,13 @@
 # node-ambiente-conceitos
 
 - [node-ambiente-conceitos](#node-ambiente-conceitos)
-  - [Comandos terminal](#comandos-terminal)
+  - [Iniciando Projeto](#iniciando-projeto)
+  - [Pacotes](#pacotes)
 
-## Comandos terminal
+## Iniciando Projeto
 
 - **`yarn init -y`** - comando para iniciar projeto criando `package.json`
+
+## Pacotes
+
+- **`yarn add express`** - para trabalhar com rotas
