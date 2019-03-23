@@ -10,4 +10,7 @@
 
 ## Pacotes
 
-- **`yarn add express`** - para trabalhar com rotas
+**`-D`** - instala pacote como dependência de desenvolvedor
+
+- **`yarn add express`** - trabalhar com rotas
+- **`yarn add nodemon -D`** - monitora alterações e reinicia o servidor.
