@@ -5,7 +5,13 @@
   "repository": "https://github.com/eneasmarques/node-ambiente-conceitos.git",
   "author": "eneasmarques <eneasmarques@outlook.com.br>",
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
   "dependencies": {
     "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
   }
 }

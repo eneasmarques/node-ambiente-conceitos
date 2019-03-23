@@ -16,4 +16,4 @@ app.get('/nome/', (req, res) => {
   return res.send(`Bem-vindo, ${req.query.name}, por query_param`);
 });
 
-app.listen(3000);
+app.listen(3002);
