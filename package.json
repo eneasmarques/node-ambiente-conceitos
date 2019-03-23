@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "https://github.com/eneasmarques/node-ambiente-conceitos.git",
   "author": "eneasmarques <eneasmarques@outlook.com.br>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
