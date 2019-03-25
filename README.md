@@ -14,3 +14,4 @@
 
 - **`yarn add express`** - trabalhar com rotas
 - **`yarn add nodemon -D`** - monitora alterações e reinicia o servidor.
+- **`yarn add nunjucks`** - template engine para JavaScript
