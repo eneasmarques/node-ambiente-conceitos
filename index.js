@@ -1,11 +1,21 @@
 const express = require('express');
+const nunjucks = require('nunjucks');
 
 const app = express();
+
+nunjucks.configure('views', {
+  autoescape: true,
+  express: app,
+  watch: true
+});
+
+// informando extensao para arquivos nunjucks
+app.set('view engine', 'njk');
 
 const logMiddleware = (req, res, next) => {
   console.log(`URL: ${req.url}, Method: ${req.method}`);
 
-  req.nameSystem = 'Aplicativo X';
+  req.appName = 'Aplicativo X';
 
   // usando next() para não parar o fluxo
   return next();
@@ -15,7 +25,8 @@ const logMiddleware = (req, res, next) => {
 app.use(logMiddleware);
 
 app.get('/', (req, res) => {
-  return res.send(`Home ${req.nameSystem}`);
+  // informando view que será renderizada e passando parâmetro
+  return res.render('list', { name: req.appName });
 });
 
 // url params /nome_param
