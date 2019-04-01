@@ -3,8 +3,6 @@ const nunjucks = require('nunjucks')
 
 const app = express()
 
-const users = ['Enéas', 'Marques', 'Alves']
-
 nunjucks.configure('views', {
   autoescape: true,
   express: app,
@@ -17,43 +15,31 @@ app.use(express.urlencoded({ extended: false }))
 // informando extensao para arquivos nunjucks
 app.set('view engine', 'njk')
 
-const logMiddleware = (req, res, next) => {
-  console.log(`URL: ${req.url}, Method: ${req.method}`)
+// verifica se a idade é inválida para solicitá-la novamente
+const checaIdade = (req, res, next) => {
+  const { idade } = req.query
 
-  req.appName = 'Aplicativo X'
-
-  // usando next() para não parar o fluxo
-  return next()
+  return idade <= 0 || !idade ? res.redirect('/') : next()
 }
 
-// será chamado em todas as rotas
-app.use(logMiddleware)
-
 app.get('/', (req, res) => {
-  // informando view que será renderizada e passando parâmetro
-  return res.render('list', { users: users })
+  return res.render('age')
 })
 
-app.get('/new', (req, res) => {
-  return res.render('new')
+app.post('/check', (req, res) => {
+  const { idade } = req.body
+
+  return idade >= 18
+    ? res.redirect(`/major/?idade=${idade}`)
+    : res.redirect(`/minor/?idade=${idade}`)
 })
 
-app.post('/create', (req, res) => {
-  // req.body -> app.use(express.urlencoded({ extended: false }));
-  users.push(req.body.user)
-  return res.redirect('/')
+app.get('/minor', checaIdade, (req, res) => {
+  return res.render('minor', { idade: req.query.idade })
 })
 
-// url params /nome_param
-app.get('/nome/:name', (req, res) => {
-  return res.send(
-    `Bem-vindo ao ${req.nameSystem}, ${req.params.name}, por url_param`
-  )
-})
-
-// query params /?nome_param=valor
-app.get('/nome/', (req, res) => {
-  return res.send(`Bem-vindo, ${req.query.name}, por query_param`)
+app.get('/major', checaIdade, (req, res) => {
+  return res.render('major', { idade: req.query.idade })
 })
 
 app.listen(3000)
