@@ -3,6 +3,8 @@ const nunjucks = require('nunjucks');
 
 const app = express();
 
+const users = ['Enéas', 'Marques', 'Alves'];
+
 nunjucks.configure('views', {
   autoescape: true,
   express: app,
@@ -26,7 +28,7 @@ app.use(logMiddleware);
 
 app.get('/', (req, res) => {
   // informando view que será renderizada e passando parâmetro
-  return res.render('list', { name: req.appName });
+  return res.render('list', { users: users });
 });
 
 // url params /nome_param
