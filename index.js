@@ -35,11 +35,15 @@ app.post('/check', (req, res) => {
 })
 
 app.get('/minor', checaIdade, (req, res) => {
-  return res.render('minor', { idade: req.query.idade })
+  const { idade } = req.query
+
+  return res.render('minor', { idade })
 })
 
 app.get('/major', checaIdade, (req, res) => {
-  return res.render('major', { idade: req.query.idade })
+  const { idade } = req.query
+
+  return res.render('major', { idade })
 })
 
 app.listen(3000)
