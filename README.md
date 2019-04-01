@@ -9,6 +9,7 @@
 
 Consiste na verificação de uma idade informada na rota inicial `/` por meio do Middleware `checaIdade`.
 Caso informação válida a rota `/major` ou `/minor` será chamada dependendo do valor informado.
+Se informação não for válida será reencaminhado para rota inicial `/`.
 
 ## Iniciando Projeto
 
