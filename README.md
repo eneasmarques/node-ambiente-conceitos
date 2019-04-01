@@ -15,3 +15,5 @@
 - **`yarn add express`** - trabalhar com rotas
 - **`yarn add nodemon -D`** - monitora alterações e reinicia o servidor.
 - **`yarn add nunjucks`** - template engine para JavaScript
+- **`yarn add eslint`** - padronizar um guia de estilo de código
+  - **`yarn eslint --init`** - iniciar configuração de estilo
