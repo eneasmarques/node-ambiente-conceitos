@@ -11,6 +11,9 @@ nunjucks.configure('views', {
   watch: true
 });
 
+// para informações de formulário html
+app.use(express.urlencoded({ extended: false }));
+
 // informando extensao para arquivos nunjucks
 app.set('view engine', 'njk');
 
@@ -29,6 +32,16 @@ app.use(logMiddleware);
 app.get('/', (req, res) => {
   // informando view que será renderizada e passando parâmetro
   return res.render('list', { users: users });
+});
+
+app.get('/new', (req, res) => {
+  return res.render('new');
+});
+
+app.post('/create', (req, res) => {
+  // req.body -> app.use(express.urlencoded({ extended: false }));
+  users.push(req.body.user);
+  return res.redirect('/');
 });
 
 // url params /nome_param
