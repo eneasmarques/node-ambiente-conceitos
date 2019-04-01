@@ -1,12 +1,19 @@
 # node-ambiente-conceitos
 
 - [node-ambiente-conceitos](#node-ambiente-conceitos)
+  - [Descrição](#descri%C3%A7%C3%A3o)
   - [Iniciando Projeto](#iniciando-projeto)
   - [Pacotes](#pacotes)
 
+## Descrição
+
+Consiste na verificação de uma idade informada na rota inicial `/` por meio do Middleware `checaIdade`.
+Caso informação válida a rota `/major` ou `/minor` será chamada dependendo do valor informado.
+
 ## Iniciando Projeto
 
-- **`yarn init -y`** - comando para iniciar projeto criando `package.json`
+- **`yarn init -y`** - comando para criar `package.json`
+- **`yarn start`** - inicia aplicação
 
 ## Pacotes
 
